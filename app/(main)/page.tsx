@@ -1,54 +1,34 @@
-"use client"
-import Accordian from "@/components/Accordian";
-import Image from "next/image";
+import allProjects from "@/data/AllProjects";
 import Link from "next/link";
-import { useState } from "react";
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 export default function Home() {
-  const [typeOfColor, setTypeOfColor] = useState<"hex" | "rgb">("hex");
-  const [color, setColor] = useState("#000000");
-
-  const randomColorUtility = (length: number) => {
-    return Math.floor(Math.random() * length);
-  };
-  function handleRandomHexColor() {
-    const hex = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-    ]
-    let hexNumber = "#";
-    for (let i = 0; i < 6; i++) {
-      hexNumber += hex[randomColorUtility(hex.length)];
-      console.log(hexNumber);
-    }
-    console.log("Hi");
-    setColor(hexNumber);
-  }
   return (
     <main>
-      <button
-      onClick={()=>handleRandomHexColor}
-      >
-        button
+      <nav className="min-h-[100px] bg-red-800">
 
-      </button>
-      <Link href="/Accordian">
-        Accordian
-      </Link>
+      </nav>
+
+      <div className="bg-black min-h-[500px]">
+        Hi
+      </div>
+    <div className="flex flex-col justify-center items-center bg-slate-400 ">
+      <div className="flex flex-col gap-y-5">
+        {allProjects.length > 0
+          ? allProjects.map((pro) => (
+              <Link
+                key={pro.id}
+                href={`/${pro.name}`}
+                className="bg-white rounded-2xl p-3 flex justify-start items-center"
+              >
+                {pro.name}
+                <HiArrowNarrowRight className="mr-4" />
+              </Link>
+            ))
+          : "No data"}
+      </div>
+    </div>
     </main>
+
   );
 }
