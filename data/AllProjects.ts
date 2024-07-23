@@ -17,6 +17,10 @@ const allProjects=[
 
         id:4,
         name:"image-slider",
+    },  {
+
+        id:5,
+        name:"LoadMore",
     },
 ]
 export default allProjects;
