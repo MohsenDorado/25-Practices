@@ -22,5 +22,15 @@ const allProjects=[
         id:5,
         name:"LoadMore",
     },
+    {
+
+        id:6,
+        name:"Menu",
+    },
+    {
+
+        id:7,
+        name:"QRCode",
+    },
 ]
 export default allProjects;
