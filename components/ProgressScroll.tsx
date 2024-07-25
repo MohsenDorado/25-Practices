@@ -56,7 +56,7 @@ const ProgressScroll = () => {
 
         <div
           style={{ width: `${scrollPercentage}%` }}
-          className={`bg-red-800 w-0  h-[6px] bottom-0 absolute  z-50`}
+          className={`bg-red-800   h-[6px] bottom-0 absolute  z-50`}
         ></div>
       </div>
       <h1 className="text-7xl font-extrabold my-10 w-full flex items-center justify-center text-center">

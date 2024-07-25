@@ -42,5 +42,10 @@ const allProjects=[
         id:9,
         name:"ProgressScroll",
     },
+    {
+
+        id:10,
+        name:"Tabs",
+    },
 ]
 export default allProjects;
