@@ -47,5 +47,15 @@ const allProjects=[
         id:10,
         name:"Tabs",
     },
+    {
+
+        id:11,
+        name:"Modal",
+    },
+    {
+
+        id:12,
+        name:"GithubFinder",
+    },
 ]
 export default allProjects;
