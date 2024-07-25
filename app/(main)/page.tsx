@@ -19,7 +19,7 @@ export default function Home() {
               <Link
                 key={pro.id}
                 href={`/${pro.name}`}
-                className="bg-white rounded-2xl p-3 flex justify-start items-center"
+                className="bg-white rounded-2xl p-3 flex justify-start items-center hover:bg-stone-200"
               >
                 {pro.name}
                 <HiArrowNarrowRight className="mr-4" />

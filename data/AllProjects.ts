@@ -37,5 +37,10 @@ const allProjects=[
         id:8,
         name:"DarkSwitch",
     },
+    {
+
+        id:9,
+        name:"ProgressScroll",
+    },
 ]
 export default allProjects;
