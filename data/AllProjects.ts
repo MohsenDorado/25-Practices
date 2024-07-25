@@ -32,5 +32,10 @@ const allProjects=[
         id:7,
         name:"QRCode",
     },
+    {
+
+        id:8,
+        name:"DarkSwitch",
+    },
 ]
 export default allProjects;
