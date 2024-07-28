@@ -57,5 +57,10 @@ const allProjects=[
         id:12,
         name:"GithubFinder",
     },
+    {
+
+        id:13,
+        name:"Search",
+    },
 ]
 export default allProjects;
