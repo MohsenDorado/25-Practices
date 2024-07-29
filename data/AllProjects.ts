@@ -62,5 +62,10 @@ const allProjects=[
         id:13,
         name:"Search",
     },
+    {
+
+        id:14,
+        name:"TicTacToe",
+    },
 ]
 export default allProjects;
