@@ -1,8 +1,7 @@
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { BsBookmarkHeartFill } from "react-icons/bs";
-import { ImSearch } from "react-icons/im";
-import { IoHome, IoSearchSharp } from "react-icons/io5";
+import { IoHome, IoRestaurant } from "react-icons/io5";
 
 const useMobileRoutes = () => {
   const pathname = usePathname();
@@ -10,11 +9,11 @@ const useMobileRoutes = () => {
   const routes = useMemo(
     () => [
         {
-            label: "Search",
-            href: "/RecipeApp/search",
-            icon: ImSearch,
-    
-            active: pathname === "/RecipeApp/search",
+            label: "Food",
+            href: "/RecipeApp/foods/",
+            icon: IoRestaurant,
+            
+            active: pathname.includes(`/RecipeApp/foods`),
           },
       {
         label: "Home",

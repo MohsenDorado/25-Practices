@@ -6,7 +6,7 @@ import React from 'react'
 const MobileFooter = () => {
     const mobileRoutes=useMobileRoutes();
   return (
-    <div className=' md:hidden bottom-0  fixed  w-full flex border-t-2 border-opacity-75 shadow-lg h-[100px]  '>
+    <div className=' md:hidden bottom-0  fixed  w-full flex border-t-2 border-opacity-75 shadow-lg h-[100px] bg-white  '>
         
         {mobileRoutes.map((route)=>(
 
@@ -30,8 +30,8 @@ const MobileFooter = () => {
               `,
                 route.active && 'text-black ',
               )} >
-                <route.icon  className={`w-5 h-5 ${route.active&&"fill-black transition-all duration-500 h-7 w-7 ease-in-out"}`}/>
-                <p className={`${route.active&&"text-black transition-all duration-500 ease-in-out"}`}>
+                <route.icon  className={`w-5 h-5 transition-all duration-500 ${route.active&&"fill-black transition-all duration-500 h-7 w-7"}`}/>
+                <p className={`transition-all duration-500 ${route.active&&"text-black transition-all duration-500 "}`}>
                      {route.label}
                     </p>
             </Link>
