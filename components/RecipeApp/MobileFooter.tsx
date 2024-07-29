@@ -10,7 +10,7 @@ const MobileFooter = () => {
         
         {mobileRoutes.map((route)=>(
 
-            <Link href={route.href} className={clsx(`
+            <Link key={route.href} href={route.href} className={clsx(`
                 
                 flex-1
                 flex-col
