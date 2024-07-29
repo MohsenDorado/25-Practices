@@ -67,5 +67,10 @@ const allProjects=[
         id:14,
         name:"TicTacToe",
     },
+    {
+
+        id:15,
+        name:"RecipeApp",
+    },
 ]
 export default allProjects;
