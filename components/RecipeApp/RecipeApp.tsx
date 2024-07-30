@@ -3,89 +3,87 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { BsBookmarkHeartFill } from "react-icons/bs";
+import FoodCard from "./FoodCard";
 
 const RecipeApp = () => {
-  const [query, setQuery] = useState('')
-  const [result, setResult] = useState<any>([])
-  async function handleSubmit(e:any) {
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string|null>(null)
+  async function handleSubmit(e: any) {
     e.preventDefault();
     try {
-      const res=await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${query}`)
-      const data=await res.json();
-      console.log(data);
       
-      setResult(data)
+      setResult([])
+      setError(null)
+    setIsLoading(true)
 
+      const res = await fetch(
+        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${query}`
+      );
+      const data = await res.json();
+      console.log(data);
+      console.log(data.data.recipes.length);
+
+
+      setResult(data);
+      if (data.data.recipes.length<=0) {
+        setError("No item Found!")
+        
+      }
       
-    } catch (error) {
+    } catch (error:any) {
       console.log(error);
-      
-      
+      setError(error.message)
+    }finally{
+        setIsLoading(false)
     }
-    
+
   }
-  const router = useRouter();
   function routeHome() {
     router.push("/RecipeApp");
   }
   console.log(query);
   
+
   return (
     <main className="flex flex-col h-[200vh]">
       <nav className=" bg-white flex items-center justify-between mx-3 mt-7">
         <div
           onClick={routeHome}
-          className="max-md:hidden max-lg:text-2xl font-extrabold text-4xl cursor-pointer"
+          className="max-lg:hidden max-lg:text-2xl font-extrabold text-4xl cursor-pointer"
         >
           Recipe <span className="text-sky-500">App</span>
         </div>
-        <div className="w-[50%] max-md:w-full">
 
-        <input
-        onChange={(e)=>{setQuery(e.target.value)}}
-          placeholder="Search for a food!"
-          className="border rounded-xl h-12  p-2"
+        <form className="w-[50%] max-lg:w-full flex" action={handleSubmit}>
+          <input
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+            placeholder="Search for a food!"
+            className="border rounded-xl h-12  p-2 w-full"
           />
-          <button 
-          disabled={query.trim()===null}
-          onClick={(e)=>{handleSubmit(e)}}>
+          <button
+            className="border hover:bg-sky-100 rounded-2xl p-1 transition-all duration-300 px-6 lg:px-10 ml-2"
+            disabled={query.trim() === null}
+            onClick={(e) => {
+              handleSubmit(e);
+            }}
+          >
             Search
-
           </button>
-          </div>
+        </form>
 
-        <button className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-md:hidden">
+        <button className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-lg:hidden">
           <span className="ml-2 mr-[1px]">Bookmarks</span>
           <BsBookmarkHeartFill className="w-10 h-10" />
         </button>
       </nav>
-        {
-          result.data&&(
-            <div className="grid  mt-10">
-              {result.data.recipes.map((food:any)=>(
-
-                <div className="grid-cols-1 shadow-md rounded-xl ">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <Image src={food.image_url} alt="Food" width={40} height={40}/>
-                  {food.publisher}
-
-                    </div>
-                    <div>
-
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-              ))}
-
-            </div>
-
-          )
-        }
-        
-
+      {/* //!Data */}
+      <FoodCard result={result} error={error} isLoading={isLoading}/>
+    
     </main>
   );
 };

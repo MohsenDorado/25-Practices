@@ -6,7 +6,7 @@ import React from 'react'
 const MobileFooter = () => {
     const mobileRoutes=useMobileRoutes();
   return (
-    <div className=' md:hidden bottom-0  fixed  w-full flex border-t-2 border-opacity-75 shadow-lg h-[100px] bg-white  '>
+    <div className=' lg:hidden bottom-0  fixed  w-full flex border-t-2 border-opacity-75 shadow-lg h-[100px] bg-white  '>
         
         {mobileRoutes.map((route)=>(
 
@@ -14,7 +14,6 @@ const MobileFooter = () => {
                 
                 flex-1
                 flex-col
-                grid-cols-2
                 group 
                 flex 
                 gap-x-3 
