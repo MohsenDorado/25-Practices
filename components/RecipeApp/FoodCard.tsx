@@ -76,7 +76,7 @@ const FoodCard = ({
       {result?.data?.recipes.length>0 && (
         <div className="grid-cols-2 grid lg:grid-cols-3 xl:grid-cols-4 mt-10 w-full px-2 max-md:flex flex-col">
           {result.data.recipes.map((food: any) => (
-            <Link href="/" key={food.id} className="  h-[350px] max-md:h-[200px] border  hover:shadow-xl transition-all duration-300 ">
+            <Link href={`/RecipeApp/foods/${food.id}`} key={food.id} className="  h-[350px] max-md:h-[200px] border  hover:shadow-xl transition-all duration-300 ">
               <div className="flex flex-col max-md:flex-row justify-between items-center">
                 <div className="w-full p-6">
                   <Image
