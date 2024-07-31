@@ -13,32 +13,8 @@ const RecipeApp = () => {
   const [error, setError] = useState<string|null>(null)
   async function handleSubmit(e: any) {
     e.preventDefault();
-    try {
-      
-      setResult([])
-      setError(null)
-    setIsLoading(true)
+    router.push(`/RecipeApp/foods/search/${query}`)
 
-      const res = await fetch(
-        `https://forkify-api.herokuapp.com/api/v2/recipes?search=${query}`
-      );
-      const data = await res.json();
-      console.log(data);
-      console.log(data.data.recipes.length);
-
-
-      setResult(data);
-      if (data.data.recipes.length<=0) {
-        setError("No item Found!")
-        
-      }
-      
-    } catch (error:any) {
-      console.log(error);
-      setError(error.message)
-    }finally{
-        setIsLoading(false)
-    }
 
   }
   function routeHome() {
