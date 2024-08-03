@@ -50,7 +50,7 @@ const Bookmarks = () => {
             <p className="font-extrabold">No bookmarks found</p>
             </div>
           <p className="text-sm w-full justify-start mt-5">
-          "We understand your peeky attitude, but until you finally add your first favorite food, this cat wont find anything here! !"
+          We understand your peeky attitude, but until you finally add your first favorite food, this cat wont find anything here! !
               
           </p>
           <div className="flex items-center justify-start w-full pt-[50px]">
