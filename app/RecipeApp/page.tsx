@@ -1,9 +1,14 @@
+"use client"
 import RecipeApp from '@/components/RecipeApp/RecipeApp'
 import React from 'react'
 
 const RecipeAppPage = () => {
   return (
-    <div><RecipeApp/></div>
+    <div>
+
+      <RecipeApp/>
+
+      </div>
   )
 }
 

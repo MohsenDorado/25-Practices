@@ -1,6 +1,7 @@
 "use client"
 import MobileFooter from "@/components/RecipeApp/MobileFooter";
-
+import GlobalState, { GlobalContext } from "@/context/context";
+import globalState from "@/context/context"
 export default function RecipeAppLayout({
     children,
   }: Readonly<{
@@ -10,7 +11,11 @@ export default function RecipeAppLayout({
       <html lang="en">
         <body>
             
-            {children}
+        <GlobalState>
+
+        {children}
+        </GlobalState>
+            
 
 
         <MobileFooter/>

@@ -19,18 +19,8 @@ const Foodsearch = ({query}:{query:string|string[]}) => {
       }
       const [searchedAgain, setSearchedAgain] = useState('')
     const [gotQuery, setGotQuery] = useState("");
-    // async function handleSubmit(e: any) {
-        
 
-    //     e.preventDefault();
-       
-    //     router.push(`/RecipeApp/foods/search/${gotQuery}`)
-    
-    
-    //   }
-    
     async function handleSubmit(e: any) {
-        e.preventDefault();
         
         if (gotQuery.trim().length>1) {
             
@@ -56,7 +46,7 @@ const Foodsearch = ({query}:{query:string|string[]}) => {
           
     
     
-          setResult(data);
+          setResult(data.data.recipes);
           
           if (data.data.recipes.length<=0) {
             setError("No item Found!")
@@ -109,7 +99,9 @@ const Foodsearch = ({query}:{query:string|string[]}) => {
           </button>
         </form>
 
-        <button className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-lg:hidden">
+        <button 
+        onClick={()=>router.push('/RecipeApp/bookmarks')}
+        className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-lg:hidden">
           <span className="ml-2 mr-[1px]">Bookmarks</span>
           <BsBookmarkHeartFill className="w-10 h-10" />
         </button>

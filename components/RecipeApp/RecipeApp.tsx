@@ -12,7 +12,6 @@ const RecipeApp = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string|null>(null)
   async function handleSubmit(e: any) {
-    e.preventDefault();
     router.push(`/RecipeApp/foods/search/${query}`)
 
 
@@ -52,7 +51,9 @@ const RecipeApp = () => {
           </button>
         </form>
 
-        <button className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-lg:hidden">
+        <button 
+        onClick={()=>router.push('/RecipeApp/bookmarks')}
+        className="flex items-center cursor-pointer border p-1 rounded-xl ml-1 hover:bg-slate-50 transition-all duration-200 max-lg:hidden">
           <span className="ml-2 mr-[1px]">Bookmarks</span>
           <BsBookmarkHeartFill className="w-10 h-10" />
         </button>

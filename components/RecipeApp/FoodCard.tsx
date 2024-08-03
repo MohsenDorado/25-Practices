@@ -16,6 +16,8 @@ const FoodCard = ({
   error: string | null;
   isLoading: boolean;
 }) => {
+
+
   return (
     <div className=" items-center justify-center md:px-[100px] lg:px-[150px] max-md:flex ">
       {isLoading && (
@@ -31,14 +33,6 @@ const FoodCard = ({
           </div>
         </div>
       )}
-      {/* {error === "Failed to fetch" && (
-        <div className="text-black font-bold max-md:w-[60%] rounded-md bg-white flex flex-col border items-center justify-center mt-10">
-          <div className="flex items-center p-2">
-            <p>Check your network connection and try again!</p>
-            <RiSignalWifiErrorLine className="w-10 h-10 text-red-500 m-2" />
-          </div>
-        </div>
-      )} */}
       {error!==null&& (
         
         <div className="  w-full bg-white flex flex-col items-center justify-center mt-10">
@@ -73,9 +67,9 @@ const FoodCard = ({
         
        
       )}
-      {result?.data?.recipes.length>0 && (
+      {result?.length>0 && (
         <div className="grid-cols-2 grid lg:grid-cols-3 xl:grid-cols-4 mt-10 w-full px-2 max-md:flex flex-col">
-          {result.data.recipes.map((food: any) => (
+          {result.map((food: any) => (
             <Link href={`/RecipeApp/foods/${food.id}`} key={food.id} className="  h-[350px] max-md:h-[200px] border  hover:shadow-xl transition-all duration-300 ">
               <div className="flex flex-col max-md:flex-row justify-between items-center">
                 <div className="w-full p-6">
